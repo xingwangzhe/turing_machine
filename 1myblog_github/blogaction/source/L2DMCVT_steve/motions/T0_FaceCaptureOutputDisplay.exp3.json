@@ -1,0 +1,10 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "Param_Tool_FCOD",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

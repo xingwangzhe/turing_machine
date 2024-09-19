@@ -1,0 +1,13 @@
+hexo g或hexo generate
+该命令执行后在hexo站点根目录下生成public文件夹
+（2）hexo clean
+把（1）中的public文件夹删除
+
+（3）hexo s或hexo server
+启动服务，默认地址为http://localhost:4000/，4000端口
+4）hexo d或hexo deploy
+部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。
+
+（5）hexo new [layout] <title>
+例如： hexo new photo “my-first-blog”
+上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。

@@ -1,0 +1,166 @@
+title: 姓王者的博客
+subtitle: 记录学习生活的琐事，或者技术文章:)
+descrpition: 姓王者
+keywords: xingwangzhe,姓王者的博客,姓王者,姓王者的blog,姓王者无敌,王兴家
+author: 姓王者
+theme: next
+timezone:
+#url: https://xingwangzhe.github.io/
+language: zh-CN
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url:  https://xingwangzhe.fun/       #替换为你自己的链接
+root: /
+permalink: posts/:abbrlink/    #这里就是永久链接的参数设置
+permalink_defaults:
+
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: 'git'
+  repo: git@github.com:xingwangzhe/xingwangzhe.github.io.git
+  branch: main
+  message: ${{ github.event.head_commit.message }}
+
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+
+webPushNotification: 
+  webpushrKey: 73c5debd4bcb8d7f9bb19d66537a63cd
+  webpushrAuthToken: 96448
+  trackingCode: BHV3kn7WLHGjPMT5Zz8kKEvzbDX44x9Rt3olfj_Q3QnCoQADtAW7h7dvBBmASSAi9xtRbIXoq2xEpmNWHaZb6NM
+
+hexo-daily-news:
+  enable: true
+  apiUrl: 'https://v2.alapi.cn/api/zaobao'
+  token: 'your-api-token'
+
+plugins: 
+  hexo-generator-baidu-sitemap
+  hexo-generator-sitemap
+sitemap:
+    path: sitemap.xml
+
+# _config.yml
+OhMyLive2d:
+  enable: true
+  CDN: https://unpkg.com/oh-my-live2d
+  # CDN: https://registry.npmmirror.com/oh-my-live2d/0.13/files/dist/index.min.js
+  option:
+    # importType: 'cubism2' #  导入类型, 默认使用全量导入: complete , 可选值: complete, cubism2, cubism5
+    libraryUrls: # 自定义 Cubism SDK 外部资源地址
+      complete: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js
+      cubism2: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js
+      cubism5: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js
+    # menus:
+    # items: |
+    #   (defaultItems)=>{
+    #    return [
+    #      ...defaultItems,
+    #      {
+    #        id: 'github',
+    #        icon: 'github-fill',
+    #        title: '我的github',
+    #        onClick: ()=>window.open('https://github.com/hacxy')
+    #      }
+    #    ]
+    #   }
+    # items:
+    #   - id: 'github'
+    #     icon: 'github-fill'
+    #     title: '我的github'
+    #     onClick: ()=>window.open('https://github.com/hacxy')
+    mobileDisplay: true # 是否在移动端显示
+    models:
+      - path: /L2DMCVT_steve/L2DMCVT.model3.json
+        scale: 0.11
+        position: [-100, 0]
+        mobileScale: 0.08
+        mobilePosition: [-100, 0]
+        motionPreloadStrategy: ALL
+        showHitAreaFrames: true
+        mobileStageStyle: # 移动端时舞台的样式
+          width: 180
+        stageStyle:
+          width: 250
+    parentElement: document.body #为组件提供一个父元素，如果未指定则默认挂载到 body 中
+    primaryColor: 'var(--btn-bg)' # 主题色 支持变量
+    sayHello: false # 是否在初始化阶段打印项目信息
+    dockedPosition: right
+    tips:
+      copyTips:
+        message: ['你复制了什么内容捏？记得注明出处哦~','ctrl+c复制,ctrl+v粘贴~','我们不生产文字，我们只是搬运工','我可是一直在盯着你:)，我知道你在复制什么~']
+      style:
+        width: 230
+        height: 120
+        left: calc(50% - 20px)
+        top: -100px
+      mobileStyle:
+        width: 180
+        height: 80
+        left: calc(50% - 30px)
+        top: -100px
+      idleTips:
+        interval: 15000
+        message:
+           - 你好呀~
+           - 欢迎来到我的小站~
+        # 自定义  https://v1.hitokoto.cn  数据
+        wordTheDay: |
+           function(wordTheDayData){
+             return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+           }
+    statusBar:      
+      restMessage: "你现在不能休息，周围有怪物在游荡"
+
+
+lazyload:
+  enable: true
+  # className: #可选 e.g. .J-lazyload-img
+  # loadingImg: #可选 eg. ./images/loading.png
+
+# hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/jquery.fancybox.pack.js'
+    - '**/index.js'  
+
+
+# abbrlink config
+abbrlink:
+  alg: crc32  #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
+
+
+fireworks:
+  enable: true
+
+  # then: |
+  #   (oml2d)=>{
+  #      setTimeout(() => {
+  #     oml2d.tipsMessage('hello world', 3000, 10);
+  #   }, 8000);
+  #   }

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xingwangzhe.fun","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"text":true,"style":"tabs","count":true,"active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何在hexo-next配置gitalk评论你是否也想在你的博客里面添加这样的评论区？那就快来看以下教程吧：）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在hexo-next配置gitalk">
+<meta property="og:url" content="https://xingwangzhe.fun/posts/8403dd78/index.html">
+<meta property="og:site_name" content="姓王者的博客">
+<meta property="og:description" content="如何在hexo-next配置gitalk评论你是否也想在你的博客里面添加这样的评论区？那就快来看以下教程吧：）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/gitalk.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene1.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene2.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene3.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene4.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene5.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene6.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene7.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/scene8.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/1scene.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/2scene.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/3scene.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/4scene.png">
+<meta property="og:image" content="https://xingwangzhe.fun/images/set_blog/5scene.png">
+<meta property="article:published_time" content="2024-08-31T14:15:01.440Z">
+<meta property="article:modified_time" content="2024-09-16T13:32:59.000Z">
+<meta property="article:author" content="姓王者">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="博客教程">
+<meta property="article:tag" content="第一次">
+<meta property="article:tag" content="gitalk">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xingwangzhe.fun/images/set_blog/gitalk.png">
+
+<link rel="canonical" href="https://xingwangzhe.fun/posts/8403dd78/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<script async src="/lib/fireworks.js"></script>
+  <title>在hexo-next配置gitalk | 姓王者的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "o32sgd266v");
+</script>
+<link rel="alternate" href="/atom.xml" title="姓王者的博客" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+<body>
+<!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BHV3kn7WLHGjPMT5Zz8kKEvzbDX44x9Rt3olfj_Q3QnCoQADtAW7h7dvBBmASSAi9xtRbIXoq2xEpmNWHaZb6NM' });</script><!-- end webpushr code -->
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <a href="https://github.com/xingwangzhe/"  target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">姓王者的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录学习生活的琐事，或者技术文章:)</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-友情链接">
+
+    <a href="/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a>
+
+  </li>
+        <li class="menu-item menu-item-推荐网站">
+
+    <a href="/%E6%8E%A8%E8%8D%90%E7%BD%91%E7%AB%99/" rel="section"><i class="fa fa-link fa-fw"></i>推荐网站</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xingwangzhe.fun/posts/8403dd78/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="姓王者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姓王者的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在hexo-next配置gitalk
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-08-31 22:15:01" itemprop="dateCreated datePublished" datetime="2024-08-31T22:15:01+08:00">2024-08-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-16 21:32:59" itemprop="dateModified" datetime="2024-09-16T21:32:59+08:00">2024-09-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%BA%E4%BA%8Ehexo%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">基于hexo的博客搭建教程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%BA%E4%BA%8Ehexo%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/gitalk/" itemprop="url" rel="index"><span itemprop="name">gitalk</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="如何在hexo-next配置gitalk评论"><a href="#如何在hexo-next配置gitalk评论" class="headerlink" title="如何在hexo-next配置gitalk评论"></a><center>如何在hexo-next配置gitalk评论</center></h1><p>你是否也想在你的博客里面添加这样的评论区？<br><img src="/images/set_blog/gitalk.png"><br>那就快来看以下教程吧：）</p>
+<span id="more"></span>
+<p>打开<a target="_blank" rel="noopener" href="https://github.com/">github</a>,点击右上角的图片，选择Settings,然后在左边栏最下方找到Developer settings并点击，然后在左边栏找到OAuth Apps选中点击，主页面右上角有new OAuth App<br>点击创建新OAuth Apps，输入必要参数，记录ID,创建密码，记得复制，然后转到blog\themes\next下的_config.yml文件修改其中的配置，转到<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">cloudflare</a>配置worker,然后就大功告成了，不过光听我讲没用，看图更容易理解，所以请一步一步按图片示意做:</p>
+<h3 id="在github上创建OAuth-Apps"><a href="#在github上创建OAuth-Apps" class="headerlink" title="在github上创建OAuth Apps"></a>在github上创建OAuth Apps</h3><p><img src="/images/set_blog/scene1.png"><br><img src="/images/set_blog/scene2.png"><br><img src="/images/set_blog/scene3.png"><br><img src="/images/set_blog/scene4.png"><br><img src="/images/set_blog/scene5.png"><br><img src="/images/set_blog/scene6.png"><br><img src="/images/set_blog/scene7.png"><br><img src="/images/set_blog/scene8.png"><br>可以先用文本编辑器创建txt文件记录Client id和secrets</p>
+<blockquote>
+<p><strong>切记不要把Client id和secrets泄露给他人！这里仅作演示，此测试OAuh Apps已删除</strong> </p>
+</blockquote>
+<hr>
+<h3 id="转到blog-themes-next下的-config-yml文件修改其中的配置"><a href="#转到blog-themes-next下的-config-yml文件修改其中的配置" class="headerlink" title="转到blog\themes\next下的_config.yml文件修改其中的配置"></a>转到blog\themes\next下的_config.yml文件修改其中的配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Comments Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.org/docs/third-party-services/comments</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Multiple Comment System Support</span></span><br><span class="line"><span class="attr">comments:</span></span><br><span class="line">  <span class="comment">#use: Valine</span></span><br><span class="line">  <span class="attr">text:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Available values: tabs | buttons</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">tabs</span></span><br><span class="line">  <span class="attr">count:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Choose a comment system to be displayed by default.</span></span><br><span class="line">  <span class="comment"># Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span></span><br><span class="line">  <span class="attr">active:</span> <span class="string">gitalk</span></span><br><span class="line">  <span class="comment"># Setting `true` means remembering the comment system selected by the visitor.</span></span><br><span class="line">  <span class="attr">storage:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Lazyload all comment systems.</span></span><br><span class="line">  <span class="attr">lazyload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Modify texts or order for any navs, here are some examples.</span></span><br><span class="line">  <span class="attr">nav:</span></span><br><span class="line">    <span class="attr">gitalk:</span></span><br><span class="line">     <span class="attr">order:</span> <span class="number">-1</span></span><br><span class="line">    <span class="comment">#disqus:</span></span><br><span class="line">    <span class="comment">#  text: Load Disqus</span></span><br><span class="line">    <span class="comment">#  order: -1</span></span><br><span class="line">    <span class="comment">#gitalk:</span></span><br><span class="line">    <span class="comment">#  order: -2</span></span><br></pre></td></tr></table></figure>
+<p>下面的也是配置，记得把用户名改一下</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Gitalk</span></span><br><span class="line"><span class="comment"># For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">github_id:</span> <span class="string">xingwangzhe</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">xingwangzhe.github.io</span></span><br><span class="line">  <span class="attr">client_id:</span> <span class="string">sdaf</span> <span class="comment"># OAuth app的</span></span><br><span class="line">  <span class="attr">client_secret:</span> <span class="string">asdfghjgds</span> <span class="comment">#同上</span></span><br><span class="line">  <span class="attr">admin_user:</span> <span class="string">xingwangzhe</span></span><br><span class="line">  <span class="attr">distraction_free_mode:</span> <span class="literal">true</span> <span class="comment"># Facebook-like distraction free mode</span></span><br><span class="line">  <span class="comment"># Gitalk&#x27;s display language depends on user&#x27;s browser or system environment</span></span><br><span class="line">  <span class="comment"># If you want everyone visiting your site to see a uniform language, you can set a force language value</span></span><br><span class="line">  <span class="comment"># Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line">  <span class="attr">proxy:</span> <span class="string">&#x27;https://cors-anywhere.xingwangzhe.workers.dev/https://github.com/login/oauth/access_token&#x27;</span></span><br><span class="line">  <span class="comment">#worker，请记住这段链接，接下来要用到</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="利用cloudflare创建worker代理"><a href="#利用cloudflare创建worker代理" class="headerlink" title="利用cloudflare创建worker代理"></a>利用cloudflare创建worker代理</h3><p><img src="/images/set_blog/1scene.png"><br><img src="/images/set_blog/2scene.png"><br><img src="/images/set_blog/3scene.png"><br><img src="/images/set_blog/4scene.png"><br><img src="/images/set_blog/5scene.png"><br>别忘了注册的用户名是你的博客用户名<br>在左侧worker代码栏添加如下代码，但是请记得替换用户名。<br>代码栏有替换工具，这里就不演示了<br><a target="_blank" rel="noopener" href="https://github.com/chrisspiegl/cloudflare-cors-anywhere">源码地址</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> exclude = [];     <span class="comment">// Regexp for blacklisted urls</span></span><br><span class="line"><span class="keyword">const</span> include = [<span class="regexp">/^https?:\/\/.*xingwangzhe\.github\.io$/</span>, <span class="regexp">/^https?:\/\/localhost/</span>]; <span class="comment">// Regexp for whitelisted origins e.g.</span></span><br><span class="line"><span class="keyword">const</span> apiKeys = &#123;</span><br><span class="line">	<span class="title class_">EZWTLwVEqFnaycMzdhBz</span>: &#123;</span><br><span class="line">		<span class="attr">name</span>: <span class="string">&#x27;Test App&#x27;</span>,</span><br><span class="line">		<span class="attr">expired</span>: <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">exclude</span>: [], <span class="comment">// Regexp for blacklisted urls</span></span><br><span class="line">		<span class="attr">include</span>: [<span class="string">&quot;^http.?://xingwangzhe.github.io$&quot;</span>, <span class="string">&quot;xingwangzhe.github.io$&quot;</span>, <span class="string">&quot;^https?://localhost/&quot;</span>], <span class="comment">// Regexp for whitelisted origins</span></span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Config is all above this line.</span></span><br><span class="line"><span class="comment">// It should not be necessary to change anything below.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">verifyCredentials</span>(<span class="params">request</span>) &#123;</span><br><span class="line">	<span class="comment">// Throws exception on verification failure.</span></span><br><span class="line">	<span class="keyword">const</span> requestApiKey = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;x-cors-proxy-api-key&#x27;</span>);</span><br><span class="line">	<span class="keyword">if</span> (!<span class="title class_">Object</span>.<span class="title function_">keys</span>(apiKeys).<span class="title function_">includes</span>(requestApiKey)) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">UnauthorizedException</span>(<span class="string">&#x27;Invalid authorization key.&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (apiKeys[requestApiKey].<span class="property">expired</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">UnauthorizedException</span>(<span class="string">&#x27;Expired authorization key.&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (apiKeys[requestApiKey].<span class="property">expiresAt</span> &amp;&amp; apiKeys[requestApiKey].<span class="property">expiresAt</span>.<span class="title function_">getTime</span>() &lt; <span class="title class_">Date</span>.<span class="title function_">now</span>()) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">UnauthorizedException</span>(<span class="string">`Expired authorization key.\nKey was valid until: <span class="subst">$&#123;apiKeys[requestApiKey].expiresAt&#125;</span>`</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> apiKeys[requestApiKey];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">checkRequiredHeadersPresent</span>(<span class="params">request</span>) &#123;</span><br><span class="line">	<span class="comment">// Throws exception on verification failure.</span></span><br><span class="line">	<span class="keyword">if</span> (!request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Origin&#x27;</span>) &amp;&amp; !request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;x-requested-with&#x27;</span>)) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Missing required request header. Must specify one of: origin,x-requested-with&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">UnauthorizedException</span>(<span class="params">reason</span>) &#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">status</span> = <span class="number">401</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">statusText</span> = <span class="string">&#x27;Unauthorized&#x27;</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">reason</span> = reason;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">BadRequestException</span>(<span class="params">reason</span>) &#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">status</span> = <span class="number">400</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">statusText</span> = <span class="string">&#x27;Bad Request&#x27;</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">reason</span> = reason;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isListed</span>(<span class="params">uri, listing</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> returnValue = <span class="literal">false</span>;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(uri);</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> uri === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">const</span> m <span class="keyword">of</span> listing) &#123;</span><br><span class="line">			<span class="keyword">if</span> (uri.<span class="title function_">match</span>(m) !== <span class="literal">null</span>) &#123;</span><br><span class="line">				returnValue = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">//   Decide what to do when Origin is null</span></span><br><span class="line">		returnValue = <span class="literal">true</span>; <span class="comment">// True accepts null origins false rejects them.</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> returnValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fix</span>(<span class="params">myHeaders, request, isOPTIONS</span>) &#123;</span><br><span class="line">	myHeaders.<span class="title function_">set</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Origin&#x27;</span>));</span><br><span class="line">	<span class="keyword">if</span> (isOPTIONS) &#123;</span><br><span class="line">		myHeaders.<span class="title function_">set</span>(<span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span>, request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;access-control-request-method&#x27;</span>));</span><br><span class="line">		<span class="keyword">const</span> acrh = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;access-control-request-headers&#x27;</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (acrh) &#123;</span><br><span class="line">			myHeaders.<span class="title function_">set</span>(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>, acrh);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		myHeaders.<span class="title function_">delete</span>(<span class="string">&#x27;X-Content-Type-Options&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> myHeaders;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">parseURL</span>(<span class="params">requestUrl</span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> match = requestUrl.<span class="title function_">match</span>(<span class="regexp">/^(?:(https?:)?\/\/)?(([^/?]+?)(?::(\d&#123;0,5&#125;)(?=[/?]|$))?)([/?][\S\s]*|$)/i</span>);</span><br><span class="line">	<span class="comment">//                              ^^^^^^^          ^^^^^^^^      ^^^^^^^                ^^^^^^^^^^^^</span></span><br><span class="line">	<span class="comment">//                            1:protocol       3:hostname     4:port                 5:path + query string</span></span><br><span class="line">	<span class="comment">//                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></span><br><span class="line">	<span class="comment">//                                            2:host</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!match) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;no match&#x27;</span>);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Invalid URL for proxy request.&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;parseURL:match:&#x27;</span>, match);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!match[<span class="number">1</span>]) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;nothing in match group 1&#x27;</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="regexp">/^https?:/i</span>.<span class="title function_">test</span>(requestUrl)) &#123;</span><br><span class="line">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;The pattern at top could mistakenly parse &quot;http:///&quot; as host=&quot;http:&quot; and path=///.&#x27;</span>);</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Invalid URL for proxy request.&#x27;</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Scheme is omitted.</span></span><br><span class="line">		<span class="keyword">if</span> (requestUrl.<span class="title function_">lastIndexOf</span>(<span class="string">&#x27;//&#x27;</span>, <span class="number">0</span>) === -<span class="number">1</span>) &#123;</span><br><span class="line">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&quot;//&quot; is omitted&#x27;</span>);</span><br><span class="line">			requestUrl = <span class="string">&#x27;//&#x27;</span> + requestUrl;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		requestUrl = (match[<span class="number">4</span>] === <span class="string">&#x27;443&#x27;</span> ? <span class="string">&#x27;https:&#x27;</span> : <span class="string">&#x27;http:&#x27;</span>) + requestUrl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> parsed = <span class="keyword">new</span> <span class="title function_">URL</span>(requestUrl);</span><br><span class="line">	<span class="keyword">if</span> (!parsed.<span class="property">hostname</span>) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&quot;http://:1/&quot; and &quot;http:/notenoughslashes&quot; could end up here.&#x27;</span>);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Invalid URL for proxy request.&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> parsed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">proxyRequest</span>(<span class="params">request, activeApiKey</span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> isOPTIONS = (request.<span class="property">method</span> === <span class="string">&#x27;OPTIONS&#x27;</span>);</span><br><span class="line">	<span class="keyword">const</span> originUrl = <span class="keyword">new</span> <span class="title function_">URL</span>(request.<span class="property">url</span>);</span><br><span class="line">	<span class="keyword">const</span> origin = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Origin&#x27;</span>);</span><br><span class="line">	<span class="comment">// ParseURL throws when the url is invalid</span></span><br><span class="line">	<span class="keyword">const</span> fetchUrl = <span class="title function_">parseURL</span>(request.<span class="property">url</span>.<span class="title function_">replace</span>(originUrl.<span class="property">origin</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">slice</span>(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Throws if it fails the check</span></span><br><span class="line">	<span class="title function_">checkRequiredHeadersPresent</span>(request);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Excluding urls which are not allowed as destination urls</span></span><br><span class="line">	<span class="comment">// Exclude origins which are not int he included ones</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="title function_">isListed</span>(fetchUrl.<span class="title function_">toString</span>(), [...exclude, ...(activeApiKey?.<span class="property">exclude</span> || [])]) || !<span class="title function_">isListed</span>(origin, [...include, ...(activeApiKey?.<span class="property">include</span> || [])])) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Origin or Destination URL is not allowed.&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">let</span> corsHeaders = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;x-cors-headers&#x27;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (corsHeaders !== <span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			corsHeaders = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(corsHeaders);</span><br><span class="line">		&#125; <span class="keyword">catch</span> &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!originUrl.<span class="property">pathname</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;/&#x27;</span>)) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Pathname does not start with &quot;/&quot;&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> recvHpaireaders = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">const</span> pair <span class="keyword">of</span> request.<span class="property">headers</span>.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((pair[<span class="number">0</span>].<span class="title function_">match</span>(<span class="string">&#x27;^origin&#x27;</span>) === <span class="literal">null</span>)</span><br><span class="line">        &amp;&amp; (pair[<span class="number">0</span>].<span class="title function_">match</span>(<span class="string">&#x27;eferer&#x27;</span>) === <span class="literal">null</span>)</span><br><span class="line">        &amp;&amp; (pair[<span class="number">0</span>].<span class="title function_">match</span>(<span class="string">&#x27;^cf-&#x27;</span>) === <span class="literal">null</span>)</span><br><span class="line">        &amp;&amp; (pair[<span class="number">0</span>].<span class="title function_">match</span>(<span class="string">&#x27;^x-forw&#x27;</span>) === <span class="literal">null</span>)</span><br><span class="line">        &amp;&amp; (pair[<span class="number">0</span>].<span class="title function_">match</span>(<span class="string">&#x27;^x-cors-headers&#x27;</span>) === <span class="literal">null</span>)</span><br><span class="line">		) &#123;</span><br><span class="line">			recvHpaireaders[pair[<span class="number">0</span>]] = pair[<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (corsHeaders !== <span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">const</span> c <span class="keyword">of</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(corsHeaders)) &#123;</span><br><span class="line">			recvHpaireaders[c[<span class="number">0</span>]] = c[<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> newRequest = <span class="keyword">new</span> <span class="title class_">Request</span>(request, &#123;</span><br><span class="line">		<span class="attr">headers</span>: recvHpaireaders,</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(fetchUrl, newRequest);</span><br><span class="line">	<span class="keyword">let</span> myHeaders = <span class="keyword">new</span> <span class="title class_">Headers</span>(response.<span class="property">headers</span>);</span><br><span class="line">	<span class="keyword">const</span> newCorsHeaders = [];</span><br><span class="line">	<span class="keyword">const</span> allh = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">const</span> pair <span class="keyword">of</span> response.<span class="property">headers</span>.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">		newCorsHeaders.<span class="title function_">push</span>(pair[<span class="number">0</span>]);</span><br><span class="line">		allh[pair[<span class="number">0</span>]] = pair[<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	newCorsHeaders.<span class="title function_">push</span>(<span class="string">&#x27;cors-received-headers&#x27;</span>);</span><br><span class="line">	myHeaders = <span class="title function_">fix</span>(myHeaders, request, isOPTIONS);</span><br><span class="line"></span><br><span class="line">	myHeaders.<span class="title function_">set</span>(<span class="string">&#x27;Access-Control-Expose-Headers&#x27;</span>, newCorsHeaders.<span class="title function_">join</span>(<span class="string">&#x27;,&#x27;</span>));</span><br><span class="line"></span><br><span class="line">	myHeaders.<span class="title function_">set</span>(<span class="string">&#x27;cors-received-headers&#x27;</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(allh));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> body = isOPTIONS ? <span class="literal">null</span> : <span class="keyword">await</span> response.<span class="title function_">arrayBuffer</span>();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(body, &#123;</span><br><span class="line">		<span class="attr">headers</span>: myHeaders,</span><br><span class="line">		<span class="attr">status</span>: (isOPTIONS ? <span class="number">200</span> : response.<span class="property">status</span>),</span><br><span class="line">		<span class="attr">statusText</span>: (isOPTIONS ? <span class="string">&#x27;OK&#x27;</span> : response.<span class="property">statusText</span>),</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">homeRequest</span>(<span class="params">request</span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> isOPTIONS = (request.<span class="property">method</span> === <span class="string">&#x27;OPTIONS&#x27;</span>);</span><br><span class="line">	<span class="keyword">const</span> originUrl = <span class="keyword">new</span> <span class="title function_">URL</span>(request.<span class="property">url</span>);</span><br><span class="line">	<span class="keyword">const</span> origin = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Origin&#x27;</span>);</span><br><span class="line">	<span class="keyword">const</span> remIp = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;CF-Connecting-IP&#x27;</span>);</span><br><span class="line">	<span class="keyword">const</span> corsHeaders = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;x-cors-headers&#x27;</span>);</span><br><span class="line">	<span class="keyword">let</span> myHeaders = <span class="keyword">new</span> <span class="title class_">Headers</span>();</span><br><span class="line">	myHeaders = <span class="title function_">fix</span>(myHeaders, request, isOPTIONS);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">let</span> country = <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">let</span> colo = <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> request.<span class="property">cf</span> !== <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">		country = <span class="keyword">typeof</span> request.<span class="property">cf</span>.<span class="property">country</span> === <span class="string">&#x27;undefined&#x27;</span> ? <span class="literal">false</span> : request.<span class="property">cf</span>.<span class="property">country</span>;</span><br><span class="line">		colo = <span class="keyword">typeof</span> request.<span class="property">cf</span>.<span class="property">colo</span> === <span class="string">&#x27;undefined&#x27;</span> ? <span class="literal">false</span> : request.<span class="property">cf</span>.<span class="property">colo</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(</span><br><span class="line">		<span class="string">&#x27;CLOUDFLARE-CORS-ANYWHERE\n\n&#x27;</span></span><br><span class="line">        + <span class="string">&#x27;Source:\nhttps://github.com/chrisspiegl/cloudflare-cors-anywhere\n\n&#x27;</span></span><br><span class="line">        + <span class="string">&#x27;Usage:\n&#x27;</span></span><br><span class="line">        + originUrl.<span class="property">origin</span> + <span class="string">&#x27;/&#123;uri&#125;\n&#x27;</span></span><br><span class="line">        + <span class="string">&#x27;Header x-cors-proxy-api-key must be set with valid api key\n&#x27;</span></span><br><span class="line">        + <span class="string">&#x27;Header origin or x-requested-with must be set\n\n&#x27;</span></span><br><span class="line">        <span class="comment">// + &#x27;Limits: 100,000 requests/day\n&#x27;</span></span><br><span class="line">        <span class="comment">// + &#x27;          1,000 requests/10 minutes\n\n&#x27;</span></span><br><span class="line">        + (origin === <span class="literal">null</span> ? <span class="string">&#x27;&#x27;</span> : <span class="string">&#x27;Origin: &#x27;</span> + origin + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        + <span class="string">&#x27;Ip: &#x27;</span> + remIp + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">        + (country ? <span class="string">&#x27;Country: &#x27;</span> + country + <span class="string">&#x27;\n&#x27;</span> : <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        + (colo ? <span class="string">&#x27;Datacenter: &#x27;</span> + colo + <span class="string">&#x27;\n&#x27;</span> : <span class="string">&#x27;&#x27;</span>) + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">        + ((corsHeaders === <span class="literal">null</span>) ? <span class="string">&#x27;&#x27;</span> : <span class="string">&#x27;\nx-cors-headers: &#x27;</span> + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(corsHeaders)),</span><br><span class="line">		&#123;<span class="attr">status</span>: <span class="number">200</span>, <span class="attr">headers</span>: myHeaders&#125;,</span><br><span class="line">	);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">handleRequest</span>(<span class="params">request</span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123;protocol, pathname&#125; = <span class="keyword">new</span> <span class="title function_">URL</span>(request.<span class="property">url</span>);</span><br><span class="line">	<span class="comment">// In the case of a &quot;Basic&quot; authentication, the exchange MUST happen over an HTTPS (TLS) connection to be secure.</span></span><br><span class="line">	<span class="keyword">if</span> (protocol !== <span class="string">&#x27;https:&#x27;</span> || request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;x-forwarded-proto&#x27;</span>) !== <span class="string">&#x27;https&#x27;</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadRequestException</span>(<span class="string">&#x27;Must use a HTTPS connection.&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span> (pathname) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;/favicon.ico&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;/robots.txt&#x27;</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="literal">null</span>, &#123;<span class="attr">status</span>: <span class="number">204</span>&#125;);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="title function_">homeRequest</span>(request);</span><br><span class="line">		<span class="attr">default</span>: &#123;</span><br><span class="line">			<span class="comment">// Not 100% sure if this is a good idea…</span></span><br><span class="line">			<span class="comment">// Right now all OPTIONS requests are just simply replied to because otherwise they fail.</span></span><br><span class="line">			<span class="comment">// This is necessary because apparently, OPTIONS requests do not carry the `x-cors-proxy-api-key` header so this can not be authorized.</span></span><br><span class="line">			<span class="keyword">if</span> (request.<span class="property">method</span> === <span class="string">&#x27;OPTIONS&#x27;</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="literal">null</span>, &#123;</span><br><span class="line">					<span class="attr">headers</span>: <span class="title function_">fix</span>(<span class="keyword">new</span> <span class="title class_">Headers</span>(), request, <span class="literal">true</span>),</span><br><span class="line">					<span class="attr">status</span>: <span class="number">200</span>,</span><br><span class="line">					<span class="attr">statusText</span>: <span class="string">&#x27;OK&#x27;</span>,</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// The &quot;x-cors-proxy-api-key&quot; header is sent when authenticated.</span></span><br><span class="line">			<span class="comment">//if (request.headers.has(&#x27;x-cors-proxy-api-key&#x27;)) &#123;</span></span><br><span class="line">				<span class="comment">// Throws exception when authorization fails.</span></span><br><span class="line">				<span class="comment">//const activeApiKey = verifyCredentials(request);</span></span><br><span class="line"></span><br><span class="line">				<span class="comment">// Only returns this response when no exception is thrown.</span></span><br><span class="line">				<span class="keyword">return</span> <span class="title function_">proxyRequest</span>(request);</span><br><span class="line">			<span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">			<span class="comment">// Not authenticated.</span></span><br><span class="line">			<span class="comment">//throw new UnauthorizedException(&#x27;Valid x-cors-proxy-api-key header has to be provided.&#x27;);</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&#x27;fetch&#x27;</span>, <span class="keyword">async</span> event =&gt; &#123;</span><br><span class="line">	event.<span class="title function_">respondWith</span>(</span><br><span class="line">		<span class="title function_">handleRequest</span>(event.<span class="property">request</span>).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">const</span> message = error.<span class="property">reason</span> || error.<span class="property">stack</span> || <span class="string">&#x27;Unknown Error&#x27;</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(message, &#123;</span><br><span class="line">				<span class="attr">status</span>: error.<span class="property">status</span> || <span class="number">500</span>,</span><br><span class="line">				<span class="attr">statusText</span>: error.<span class="property">statusText</span> || <span class="literal">null</span>,</span><br><span class="line">				<span class="attr">headers</span>: &#123;</span><br><span class="line">					<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/plain;charset=UTF-8&#x27;</span>,</span><br><span class="line">					<span class="comment">// Disables caching by default.</span></span><br><span class="line">					<span class="string">&#x27;Cache-Control&#x27;</span>: <span class="string">&#x27;no-store&#x27;</span>,</span><br><span class="line">					<span class="comment">// Returns the &quot;Content-Length&quot; header for HTTP HEAD requests.</span></span><br><span class="line">					<span class="string">&#x27;Content-Length&#x27;</span>: message.<span class="property">length</span>,</span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;),</span><br><span class="line">	);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后就大功告成了：）</p>
+<h1 id="无脑解决-2024-9-16"><a href="#无脑解决-2024-9-16" class="headerlink" title="无脑解决 2024&#x2F;9&#x2F;16"></a>无脑解决 2024&#x2F;9&#x2F;16</h1><p>将 proxy 替换为了</p>
+<blockquote>
+<p><code>proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token</code></p>
+</blockquote>
+<p>再次 hexo clean &amp;&amp; hexo g -d, 即可使用 gitalk, 评论区会作为设置中的 repo 的 issue 存在.</p>
+<h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p>如果你为你的博客购买了其他的域名，记得要在OAuh Apps设置的返回链接改成你的域名<br>当然，连带着worker应该也要改，但是在这里我还是建议你直接使用无脑的那个<code>proxy</code></p>
+<blockquote>
+<p>我为此折腾了半天：（</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>你的鼓励是我最大的动力.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="姓王者 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="姓王者 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"># 记录</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" rel="tag"># 博客教程</a>
+              <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag"># 第一次</a>
+              <a href="/tags/gitalk/" rel="tag"># gitalk</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/ca82fca4/" rel="prev" title="工业博物馆游览">
+      <i class="fa fa-chevron-left"></i> 工业博物馆游览
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/ceb862dd/" rel="next" title="whatgalgame">
+      whatgalgame <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-livere">livere</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+            <div class="tab-pane livere" id="comment-livere">
+              
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTkzNi8zNjM5OQ=="></div>
+  </div>
+  
+            </div>
+        </div>
+      </div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8hexo-next%E9%85%8D%E7%BD%AEgitalk%E8%AF%84%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">如何在hexo-next配置gitalk评论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BAOAuth-Apps"><span class="nav-number">1.0.1.</span> <span class="nav-text">在github上创建OAuth Apps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E5%88%B0blog-themes-next%E4%B8%8B%E7%9A%84-config-yml%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E5%85%B6%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.2.</span> <span class="nav-text">转到blog\themes\next下的_config.yml文件修改其中的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8cloudflare%E5%88%9B%E5%BB%BAworker%E4%BB%A3%E7%90%86"><span class="nav-number">1.0.3.</span> <span class="nav-text">利用cloudflare创建worker代理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E8%84%91%E8%A7%A3%E5%86%B3-2024-9-16"><span class="nav-number">2.</span> <span class="nav-text">无脑解决 2024&#x2F;9&#x2F;16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AF%9D"><span class="nav-number">3.</span> <span class="nav-text">后话</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="姓王者"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">姓王者</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">归档</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xingwangzhe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xingwangzhe" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/xingwangzhe@outlook.com" title="E-Mail → xingwangzhe@outlook.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/1987297874" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;1987297874" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://eone.neu.edu.cn/" title="https:&#x2F;&#x2F;eone.neu.edu.cn&#x2F;" rel="noopener" target="_blank">东北大学一网通</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.东北大学.com/" title="https:&#x2F;&#x2F;www.东北大学.com&#x2F;" rel="noopener" target="_blank">NEU小站</a>
+        </li>
+    </ul>
+  </div>
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+      </div>
+
+        <div class="where is your ip">
+    <h3>访客信息</h3>
+    <a target="_blank" rel="noopener" href="https://tool.lu/ip/">
+    <img src="https://tool.lu/netcard/">
+    </a>
+    <a target="_blank" href="https://time.is/China" id="time_is_link" rel="nofollow noopener" style="font-size:20px">北京时间:</a>
+<span id="China_z43d" style="font-size:20px"></span>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+time_is_widget.init({China_z43d:{template:"TIME<br>DATE<br>SUN", date_format:"year-monthnum-daynum dname", sun_format:"日出: srhour:srminute 日落: sshour:ssminute<br>昼长: dlhours时 dlminutes分", coords:"35.0000000,105.0000000"}});
+</script>
+
+  </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">姓王者</span>
+</div>
+
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("6/21/2024 6:30:00"); //修改为你的网站开始运行的时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'Ov23lifXHoq97dbVMtsq',
+      clientSecret: '5b1323c3b64bd4fef3f3a56e2c7ada191b416bf4',
+      repo        : 'xingwangzhe.github.io',
+      owner       : 'xingwangzhe',
+      admin       : ['xingwangzhe'],
+      id          : 'f583e6c1a341eb034c9592e4dfd9cd31',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+<!-- hexo injector body_end start --><script data-pjax src="https://unpkg.com/oh-my-live2d"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},mobileDisplay:true,models:[{"path":"/L2DMCVT_steve/L2DMCVT.model3.json","scale":0.11,"position":[-100,0],"mobileScale":0.08,"mobilePosition":[-100,0],"motionPreloadStrategy":"ALL","showHitAreaFrames":true,"mobileStageStyle":{"width":180},"stageStyle":{"width":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,dockedPosition:"right",tips:{copyTips: {"message":["你复制了什么内容捏？记得注明出处哦~","ctrl+c复制,ctrl+v粘贴~","我们不生产文字，我们只是搬运工","我可是一直在盯着你:)，我知道你在复制什么~"]},style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:15000,message:["你好呀~","欢迎来到我的小站~"],wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}},statusBar:{"restMessage":"你现在不能休息，周围有怪物在游荡"}});</script><!-- hexo injector body_end end --><script>(function (w, d, s, id) {
+            if (typeof (w.webpushr) !== 'undefined') return; w.webpushr = w.webpushr || function () { (w.webpushr.q = w.webpushr.q || []).push(arguments) }; var js, fjs = d.getElementsByTagName(s)[0]; js = d.createElement(s); js.id = id; js.async = 1; js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window, document, 'script', 'webpushr-jssdk'));webpushr('setup', { 'key': 'BHV3kn7WLHGjPMT5Zz8kKEvzbDX44x9Rt3olfj_Q3QnCoQADtAW7h7dvBBmASSAi9xtRbIXoq2xEpmNWHaZb6NM' });</script></body>
+</html>

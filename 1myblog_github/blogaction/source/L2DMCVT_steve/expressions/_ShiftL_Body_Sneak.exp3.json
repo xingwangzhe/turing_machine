@@ -1,0 +1,10 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "Param_MC_Body_Control_Y",
+			"Value": -60,
+			"Blend": "Add"
+		}
+	]
+}
