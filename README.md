@@ -1,4 +1,4 @@
 # 图灵机模型
-## LICENSE : [MIT](MIT)
+## 许可 : [MIT](LICENSE)
 
 ## waiting....
