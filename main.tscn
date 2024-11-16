@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1tc4mr8rtbgo"]
+
+[ext_resource type="Texture2D" uid="uid://rx66gh77hvrf" path="res://1.svg" id="1_n4kgr"]
+[ext_resource type="Texture2D" uid="uid://cbh622gagulog" path="res://2.svg" id="2_hjjs3"]
+[ext_resource type="Texture2D" uid="uid://cjdt45y27lcwg" path="res://3.svg" id="3_158ks"]
+[ext_resource type="Texture2D" uid="uid://dlut11hmsfoqe" path="res://4.svg" id="4_xp772"]
+[ext_resource type="Texture2D" uid="uid://bfklbx2qyny2k" path="res://5.svg" id="5_u7im2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+custom_minimum_size = Vector2(12.055, 57.565)
+offset_right = 12.055
+offset_bottom = 57.565
+scale = Vector2(121322, 15.4802)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer_top" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+text = "模型选择："
+
+[node name="model_1" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+icon = ExtResource("1_n4kgr")
+icon_alignment = 1
+
+[node name="model_2" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+icon = ExtResource("2_hjjs3")
+
+[node name="model_3" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+icon = ExtResource("3_158ks")
+
+[node name="model_4" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+icon = ExtResource("4_xp772")
+
+[node name="model_5" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+icon = ExtResource("5_u7im2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "asdsdaadsad 
+"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "askdbau"
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "asdasdasd"
+
+[node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "sadsadsad"
+
+[node name="Label5" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "sadasvdavasd"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "输入纸带串，默认两端加B"
