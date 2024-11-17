@@ -1,11 +1,18 @@
 extends Button
 
+	
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
+
+
+func _on_pressed() -> void:
+	#pass # Replace with function body.
+	$"../../VBoxContainer/Label1".text='niaho'
+	$"../../modelimg".texture=load("res://model1.png")
+
+
+func _on_model_2_pressed() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
