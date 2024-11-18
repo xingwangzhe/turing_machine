@@ -13,3 +13,14 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	$"../../modelimg".texture=load("res://model5.png")
+	$"../../decs".texture=load("res://dec5.png")
+	$"../../VBoxContainer/Label1".text="a"
+	$"../../VBoxContainer/Label2".text="aa"
+	$"../../VBoxContainer/Label3".text="aaa"
+	$"../../VBoxContainer/Label4".text="aaaa"
+	$"../../VBoxContainer/Label5".text="aaaaa"
+	$"../../VBoxContainer/once".id=5
+
+
+func _on_label_5_pressed() -> void:
+	pass # Replace with function body.

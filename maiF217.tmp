@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1tc4mr8rtbgo"]
+[gd_scene load_steps=17 format=3 uid="uid://d1tc4mr8rtbgo"]
 
-[ext_resource type="Script" path="res://log.gd" id="1_2yad5"]
 [ext_resource type="Texture2D" uid="uid://rx66gh77hvrf" path="res://1.svg" id="1_n4kgr"]
 [ext_resource type="Texture2D" uid="uid://cbh622gagulog" path="res://2.svg" id="2_hjjs3"]
 [ext_resource type="Script" path="res://model_1.gd" id="2_lr0mv"]
@@ -12,20 +11,11 @@
 [ext_resource type="Script" path="res://model_4.gd" id="8_qe7ub"]
 [ext_resource type="Script" path="res://model_5.gd" id="10_0kqoh"]
 [ext_resource type="Script" path="res://about.gd" id="11_wnoog"]
-[ext_resource type="Script" path="res://label_1.gd" id="12_hhxsn"]
-[ext_resource type="Script" path="res://v_box_container.gd" id="12_jnkuv"]
 [ext_resource type="Script" path="res://window.gd" id="12_o82vi"]
 [ext_resource type="Script" path="res://rich_text_label_2.gd" id="13_0w5rx"]
-[ext_resource type="Script" path="res://label_2.gd" id="13_67nac"]
 [ext_resource type="Script" path="res://rich_text_label.gd" id="13_p2dws"]
-[ext_resource type="Script" path="res://label_3.gd" id="14_nqcv3"]
 [ext_resource type="Script" path="res://line_edit.gd" id="15_bk86s"]
 [ext_resource type="Script" path="res://button.gd" id="15_ge00m"]
-[ext_resource type="Script" path="res://label_4.gd" id="15_l2e8r"]
-[ext_resource type="Script" path="res://label_5.gd" id="16_ewdxr"]
-[ext_resource type="Script" path="res://once.gd" id="17_uqp46"]
-[ext_resource type="Script" path="res://full_action.gd" id="23_42q8j"]
-[ext_resource type="FontFile" uid="uid://315nmpak7em1" path="res://JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -35,41 +25,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 3
 
 [node name="ColorRect" type="ColorRect" parent="Panel"]
-custom_minimum_size = Vector2(13.935, 57.565)
+z_index = -615
+custom_minimum_size = Vector2(12.055, 57.565)
 layout_mode = 0
-offset_left = -1198.0
+offset_left = -584.0
 offset_top = -50.0
-offset_right = -699.0
-offset_bottom = 144950.0
+offset_right = -146.0
+offset_bottom = 776950.0
 scale = Vector2(10, 0.001)
-
-[node name="VScrollBar" type="VScrollBar" parent="Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="log" type="RichTextLabel" parent="Panel/VScrollBar"]
-z_index = 432
-layout_mode = 2
-offset_left = -3.0
-offset_top = 580.0
-offset_right = 1147.0
-offset_bottom = 687.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_stretch_ratio = 2.25
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "日志
-"
-scroll_active = false
-scroll_following = true
-context_menu_enabled = true
-script = ExtResource("1_2yad5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -81,12 +46,10 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.73
 
 [node name="HBoxContainer_top" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 2
-size_flags_stretch_ratio = 0.39
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
 layout_mode = 2
@@ -124,74 +87,38 @@ text = "关于"
 script = ExtResource("11_wnoog")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(0, 45.015)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-size_flags_stretch_ratio = 2.59
-script = ExtResource("12_jnkuv")
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "示例串"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label6" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "按下数字后快速输入"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label1" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Label1" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.26
-text = "test1"
-script = ExtResource("12_hhxsn")
+text = "asdsdaadsad 
+"
 
-[node name="Label2" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.39
-text = "test2"
-script = ExtResource("13_67nac")
+text = "askdbau"
 
-[node name="Label3" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "test3"
-script = ExtResource("14_nqcv3")
+text = "asdasdasd"
 
-[node name="Label4" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "test4"
-script = ExtResource("15_l2e8r")
+text = "sadsadsad"
 
-[node name="Label5" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Label5" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "test5"
-script = ExtResource("16_ewdxr")
-
-[node name="once" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "单次运行"
-script = ExtResource("17_uqp46")
-
-[node name="always" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 6.15
-text = "持续运行"
-script = ExtResource("15_ge00m")
+text = "sadasvdavasd"
 
 [node name="modelimg" type="Sprite2D" parent="VBoxContainer/PanelContainer"]
 position = Vector2(367.89, 340)
-
-[node name="decs" type="Sprite2D" parent="VBoxContainer/PanelContainer"]
-position = Vector2(1100, 247)
 
 [node name="Window" type="Window" parent="VBoxContainer/PanelContainer"]
 title = "关于"
@@ -241,31 +168,32 @@ scroll_active = false
 autowrap_mode = 2
 script = ExtResource("13_p2dws")
 
-[node name="tag" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-theme_override_fonts/normal_font = ExtResource("24_o1f5i")
-theme_override_font_sizes/normal_font_size = 91
-bbcode_enabled = true
-scroll_active = false
-
-[node name="full_action" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 z_index = 12
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.47
-theme_override_fonts/normal_font = ExtResource("24_o1f5i")
+size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/normal_font_size = 91
 text = "等待下方输入"
 scroll_active = false
-script = ExtResource("23_42q8j")
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-placeholder_text = "输入纸带串，默认两端加B,回车键确认输入"
+placeholder_text = "输入纸带串，默认两端加B"
 script = ExtResource("15_bk86s")
+
+[node name="Button" type="Button" parent="VBoxContainer/LineEdit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -19.936
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1095.0
+offset_top = 618.016
+offset_bottom = -1.0
+text = "确定"
+script = ExtResource("15_ge00m")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_1" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_1" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_2" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_2" method="_on_pressed"]
@@ -273,14 +201,8 @@ script = ExtResource("15_bk86s")
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_4" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_4" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_5" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_5" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/about" to="VBoxContainer/PanelContainer/HBoxContainer_top/about" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label1" to="VBoxContainer/PanelContainer/VBoxContainer/Label1" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label2" to="VBoxContainer/PanelContainer/VBoxContainer/Label2" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label3" to="VBoxContainer/PanelContainer/VBoxContainer/Label3" method="_on_label_3_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label4" to="VBoxContainer/PanelContainer/VBoxContainer/Label4" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label5" to="VBoxContainer/PanelContainer/VBoxContainer/Label5" method="_on_label_5_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/once" to="VBoxContainer/PanelContainer/VBoxContainer/once" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/always" to="VBoxContainer/PanelContainer/VBoxContainer/always" method="_on_pressed"]
 [connection signal="close_requested" from="VBoxContainer/PanelContainer/Window" to="VBoxContainer/PanelContainer/Window" method="_on_close_requested"]
 [connection signal="meta_clicked" from="VBoxContainer/PanelContainer/Window/Control/RichTextLabel2" to="VBoxContainer/PanelContainer/Window/Control/RichTextLabel2" method="_on_meta_clicked"]
 [connection signal="meta_clicked" from="VBoxContainer/PanelContainer/Window/Control/RichTextLabel" to="VBoxContainer/PanelContainer/Window/Control/RichTextLabel" method="_on_meta_clicked"]
 [connection signal="text_submitted" from="VBoxContainer/LineEdit" to="VBoxContainer/LineEdit" method="_on_text_submitted"]
+[connection signal="pressed" from="VBoxContainer/LineEdit/Button" to="VBoxContainer/LineEdit/Button" method="_on_pressed"]

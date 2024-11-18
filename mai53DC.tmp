@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1tc4mr8rtbgo"]
+[gd_scene load_steps=25 format=3 uid="uid://d1tc4mr8rtbgo"]
 
-[ext_resource type="Script" path="res://log.gd" id="1_2yad5"]
 [ext_resource type="Texture2D" uid="uid://rx66gh77hvrf" path="res://1.svg" id="1_n4kgr"]
 [ext_resource type="Texture2D" uid="uid://cbh622gagulog" path="res://2.svg" id="2_hjjs3"]
 [ext_resource type="Script" path="res://model_1.gd" id="2_lr0mv"]
@@ -25,7 +24,6 @@
 [ext_resource type="Script" path="res://label_5.gd" id="16_ewdxr"]
 [ext_resource type="Script" path="res://once.gd" id="17_uqp46"]
 [ext_resource type="Script" path="res://full_action.gd" id="23_42q8j"]
-[ext_resource type="FontFile" uid="uid://315nmpak7em1" path="res://JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -46,30 +44,18 @@ offset_right = -699.0
 offset_bottom = 144950.0
 scale = Vector2(10, 0.001)
 
-[node name="VScrollBar" type="VScrollBar" parent="Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="log" type="RichTextLabel" parent="Panel/VScrollBar"]
-z_index = 432
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+z_index = 2
 layout_mode = 2
-offset_left = -3.0
-offset_top = 580.0
+offset_left = 761.0
+offset_top = 425.0
 offset_right = 1147.0
-offset_bottom = 687.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 606.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.25
-theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "日志
-"
-scroll_active = false
+text = "[center]日志[/center]"
 scroll_following = true
-context_menu_enabled = true
-script = ExtResource("1_2yad5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -81,12 +67,10 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.73
 
 [node name="HBoxContainer_top" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 2
-size_flags_stretch_ratio = 0.39
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
 layout_mode = 2
@@ -128,7 +112,7 @@ custom_minimum_size = Vector2(0, 45.015)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-size_flags_stretch_ratio = 2.59
+size_flags_stretch_ratio = 1.59
 script = ExtResource("12_jnkuv")
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
@@ -146,7 +130,7 @@ vertical_alignment = 1
 [node name="Label1" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.26
+size_flags_stretch_ratio = 2.56
 text = "test1"
 script = ExtResource("12_hhxsn")
 
@@ -182,8 +166,6 @@ script = ExtResource("17_uqp46")
 
 [node name="always" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 6.15
 text = "持续运行"
 script = ExtResource("15_ge00m")
 
@@ -241,21 +223,11 @@ scroll_active = false
 autowrap_mode = 2
 script = ExtResource("13_p2dws")
 
-[node name="tag" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-theme_override_fonts/normal_font = ExtResource("24_o1f5i")
-theme_override_font_sizes/normal_font_size = 91
-bbcode_enabled = true
-scroll_active = false
-
 [node name="full_action" type="RichTextLabel" parent="VBoxContainer"]
 z_index = 12
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.47
-theme_override_fonts/normal_font = ExtResource("24_o1f5i")
 theme_override_font_sizes/normal_font_size = 91
 text = "等待下方输入"
 scroll_active = false

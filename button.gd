@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_pressed() -> void:
-	$"../../RichTextLabel".text=$"..".text
+#func _on_pressed() -> void:
+	

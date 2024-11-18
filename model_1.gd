@@ -10,9 +10,12 @@ extends Button
 
 func _on_pressed() -> void:
 	#pass # Replace with function body.
-	$"../../VBoxContainer/Label1".text='niaho'
 	$"../../modelimg".texture=load("res://model1.png")
-
-
-func _on_model_2_pressed() -> void:
-	pass # Replace with function body.
+	$"../../decs".texture=load("res://dec1.png")
+	$"../../VBoxContainer/Label1".text="0011"
+	$"../../VBoxContainer/Label2".text="00001111"
+	$"../../VBoxContainer/Label3".text="10"
+	$"../../VBoxContainer/Label4".text="0010"
+	$"../../VBoxContainer/Label5".text="111000111000"
+	$"../../VBoxContainer/once".id=1
+	

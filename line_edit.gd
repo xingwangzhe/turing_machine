@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends LineEdit
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,9 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_meta_clicked(meta): 
-	OS.shell_open(meta)
-
-#func _on_meta_clicked(meta: Variant) -> void:
-	#if meta == "http://godotengine.org"
-		#OS.shell_open(meta)
+func _on_text_submitted(new_text: String) -> void:
+	$"../full_action".text="B"+$".".text+"B"
+	$"../PanelContainer/VBoxContainer/once".pos=1
+	$"../PanelContainer/VBoxContainer/once".state=0
