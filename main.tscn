@@ -25,7 +25,7 @@
 [ext_resource type="Script" path="res://gdscripts/label_buttons/label_5.gd" id="16_ewdxr"]
 [ext_resource type="Script" path="res://gdscripts/once.gd" id="17_uqp46"]
 [ext_resource type="Script" path="res://gdscripts/full_action.gd" id="23_42q8j"]
-[ext_resource type="FontFile" uid="uid://315nmpak7em1" path="res://JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
+[ext_resource type="FontFile" uid="uid://cc2prmqrhwxbv" path="res://JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
