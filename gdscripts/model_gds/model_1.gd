@@ -10,8 +10,8 @@ extends Button
 
 func _on_pressed() -> void:
 	#pass # Replace with function body.
-	$"../../modelimg".texture=load("res://model1.png")
-	$"../../decs".texture=load("res://dec1.png")
+	$"../../modelimg".texture=load("res://images/models/model1.png")
+	$"../../decs".texture=load("res://images/questions/dec1.png")
 	$"../../VBoxContainer/Label1".text="0011"
 	$"../../VBoxContainer/Label2".text="00001111"
 	$"../../VBoxContainer/Label3".text="10"

@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	$"../../modelimg".texture=load("res://model5.png")
-	$"../../decs".texture=load("res://dec5.png")
+	$"../../modelimg".texture=load("res://images/models/model5.png")
+	$"../../decs".texture=load("res://images/questions/dec5.png")
 	$"../../VBoxContainer/Label1".text="a"
 	$"../../VBoxContainer/Label2".text="aa"
 	$"../../VBoxContainer/Label3".text="aaa"

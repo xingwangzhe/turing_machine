@@ -1,30 +1,30 @@
 [gd_scene load_steps=27 format=3 uid="uid://d1tc4mr8rtbgo"]
 
-[ext_resource type="Script" path="res://log.gd" id="1_2yad5"]
-[ext_resource type="Texture2D" uid="uid://rx66gh77hvrf" path="res://1.svg" id="1_n4kgr"]
-[ext_resource type="Texture2D" uid="uid://cbh622gagulog" path="res://2.svg" id="2_hjjs3"]
-[ext_resource type="Script" path="res://model_1.gd" id="2_lr0mv"]
-[ext_resource type="Texture2D" uid="uid://cjdt45y27lcwg" path="res://3.svg" id="3_158ks"]
-[ext_resource type="Script" path="res://model_2.gd" id="4_ggo2e"]
-[ext_resource type="Texture2D" uid="uid://dlut11hmsfoqe" path="res://4.svg" id="4_xp772"]
-[ext_resource type="Texture2D" uid="uid://bfklbx2qyny2k" path="res://5.svg" id="5_u7im2"]
-[ext_resource type="Script" path="res://model_3.gd" id="6_pn4gy"]
-[ext_resource type="Script" path="res://model_4.gd" id="8_qe7ub"]
-[ext_resource type="Script" path="res://model_5.gd" id="10_0kqoh"]
-[ext_resource type="Script" path="res://about.gd" id="11_wnoog"]
-[ext_resource type="Script" path="res://label_1.gd" id="12_hhxsn"]
-[ext_resource type="Script" path="res://v_box_container.gd" id="12_jnkuv"]
-[ext_resource type="Script" path="res://window.gd" id="12_o82vi"]
-[ext_resource type="Script" path="res://rich_text_label_2.gd" id="13_0w5rx"]
-[ext_resource type="Script" path="res://label_2.gd" id="13_67nac"]
-[ext_resource type="Script" path="res://rich_text_label.gd" id="13_p2dws"]
-[ext_resource type="Script" path="res://label_3.gd" id="14_nqcv3"]
-[ext_resource type="Script" path="res://line_edit.gd" id="15_bk86s"]
-[ext_resource type="Script" path="res://button.gd" id="15_ge00m"]
-[ext_resource type="Script" path="res://label_4.gd" id="15_l2e8r"]
-[ext_resource type="Script" path="res://label_5.gd" id="16_ewdxr"]
-[ext_resource type="Script" path="res://once.gd" id="17_uqp46"]
-[ext_resource type="Script" path="res://full_action.gd" id="23_42q8j"]
+[ext_resource type="Script" path="res://gdscripts/log.gd" id="1_2yad5"]
+[ext_resource type="Texture2D" uid="uid://rx66gh77hvrf" path="res://images/formula/1.svg" id="1_n4kgr"]
+[ext_resource type="Texture2D" uid="uid://cbh622gagulog" path="res://images/formula/2.svg" id="2_hjjs3"]
+[ext_resource type="Script" path="res://gdscripts/model_gds/model_1.gd" id="2_lr0mv"]
+[ext_resource type="Texture2D" uid="uid://cjdt45y27lcwg" path="res://images/formula/3.svg" id="3_158ks"]
+[ext_resource type="Script" path="res://gdscripts/model_gds/model_2.gd" id="4_ggo2e"]
+[ext_resource type="Texture2D" uid="uid://dlut11hmsfoqe" path="res://images/formula/4.svg" id="4_xp772"]
+[ext_resource type="Texture2D" uid="uid://bfklbx2qyny2k" path="res://images/formula/5.svg" id="5_u7im2"]
+[ext_resource type="Script" path="res://gdscripts/model_gds/model_3.gd" id="6_pn4gy"]
+[ext_resource type="Script" path="res://gdscripts/model_gds/model_4.gd" id="8_qe7ub"]
+[ext_resource type="Script" path="res://gdscripts/model_gds/model_5.gd" id="10_0kqoh"]
+[ext_resource type="Script" path="res://gdscripts/about.gd" id="11_wnoog"]
+[ext_resource type="Script" path="res://gdscripts/label_buttons/label_1.gd" id="12_hhxsn"]
+[ext_resource type="Script" path="res://gdscripts/v_box_container.gd" id="12_jnkuv"]
+[ext_resource type="Script" path="res://gdscripts/window.gd" id="12_o82vi"]
+[ext_resource type="Script" path="res://gdscripts/rich_text_label_2.gd" id="13_0w5rx"]
+[ext_resource type="Script" path="res://gdscripts/label_buttons/label_2.gd" id="13_67nac"]
+[ext_resource type="Script" path="res://gdscripts/rich_text_label.gd" id="13_p2dws"]
+[ext_resource type="Script" path="res://gdscripts/label_buttons/label_3.gd" id="14_nqcv3"]
+[ext_resource type="Script" path="res://gdscripts/line_edit.gd" id="15_bk86s"]
+[ext_resource type="Script" path="res://gdscripts/button.gd" id="15_ge00m"]
+[ext_resource type="Script" path="res://gdscripts/label_buttons/label_4.gd" id="15_l2e8r"]
+[ext_resource type="Script" path="res://gdscripts/label_buttons/label_5.gd" id="16_ewdxr"]
+[ext_resource type="Script" path="res://gdscripts/once.gd" id="17_uqp46"]
+[ext_resource type="Script" path="res://gdscripts/full_action.gd" id="23_42q8j"]
 [ext_resource type="FontFile" uid="uid://315nmpak7em1" path="res://JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -196,7 +196,7 @@ position = Vector2(1100, 247)
 [node name="Window" type="Window" parent="VBoxContainer/PanelContainer"]
 title = "关于"
 initial_position = 2
-size = Vector2i(601, 200)
+size = Vector2i(601, 215)
 visible = false
 script = ExtResource("12_o82vi")
 
@@ -224,8 +224,8 @@ offset_right = 438.405
 offset_bottom = 184.96
 bbcode_enabled = true
 text = "
-[img=32x32]res://github.png[/img] [url=\"http://github.com/your_repo\"]GitHub仓库[/url]
-[img=32x32]res://gitee.png[/img] [url=\"http://gitee.com/your_repo\"]Gitee仓库[/url]"
+[img=32x32]res://images/icons/github.png[/img] [url=\"https://github.com/xingwangzhe/turing_machine\"]GitHub仓库[/url]
+[img=32x32]res://images/icons/gitee.png[/img] [url=\"https://gitee.com/projects/import/github/status\"]Gitee仓库[/url]"
 scroll_active = false
 script = ExtResource("13_0w5rx")
 
@@ -236,7 +236,7 @@ offset_top = 180.0
 offset_right = 405.36
 offset_bottom = 221.805
 bbcode_enabled = true
-text = "[center]Powered by [url=\"http://godotengine.org\"]Godot[/url][/center]"
+text = "[center]Powered by [img=32x32]res://images/icons/icon.svg[/img][url=\"http://godotengine.org\"]Godot[/url][/center]"
 scroll_active = false
 autowrap_mode = 2
 script = ExtResource("13_p2dws")
