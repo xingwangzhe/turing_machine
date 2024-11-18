@@ -25,4 +25,18 @@ func _on_pressed() -> void:
 		pos=result[0]
 		state=result[1]
 		retain=result[2]
+	elif(id==3):
+		var result = $"../../../full_action".tur_action_3(pos, state)
+		pos=result[0]
+		state=result[1]
+	elif(id==4):
+		var result = $"../../../full_action".tur_action_4(pos, state)
+		pos=result[0]
+		state=result[1]
+	elif(id==5):
+		var result = $"../../../full_action".tur_action_5(pos, state,retain)
+		pos=result[0]
+		state=result[1]
+		retain=result[2]
+	
 	

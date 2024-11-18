@@ -12,8 +12,13 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	$"../../../full_action".text="B"+$".".text+"B"
-	$"../once".pos=1
-	$"../once".state=0
+	if($"../once".id==3||$"../once".id==5):
+		$"../../../full_action".text='B'+$".".text+"BBBBBBBBBB"
+		$"../once".pos=1
+		$"../once".state=0
+	else:
+		$"../../../full_action".text="B"+$".".text+"B"
+		$"../once".pos=1
+		$"../once".state=0
 	
 	
