@@ -222,7 +222,7 @@ anchor_right = 1.0
 offset_right = 275.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("24_o1f5i")
+theme_override_fonts/font = ExtResource("1_uw873")
 text = "计算机科学与技术 2302班 20235883 王兴家"
 horizontal_alignment = 1
 
@@ -232,6 +232,7 @@ offset_left = 238.405
 offset_top = 84.96
 offset_right = 438.405
 offset_bottom = 184.96
+theme_override_fonts/normal_font = ExtResource("1_uw873")
 theme_override_fonts/mono_font = ExtResource("1_uw873")
 bbcode_enabled = true
 text = "
@@ -271,7 +272,7 @@ bbcode_enabled = true
 text = "[center]帮助[/center][center]0.在底边输入自定义字符串||  1.直接输入数字可快速选中右边栏的示例串
 2.方向键快速选中按钮 ||  3.按n键单次运行
 4.此windows应用为离线版本，亦可以通过web来访问在线版本(毕竟浏览器才是多平台适配：)
-[url=\"https://turing-machine.xingwangzhe.fun\"]https://turing-machine.xingwangzhe.fun[/url] "
+[url=\"https://xingwangzhe.itch.io/turing-machine\"]https://xingwangzhe.itch.io/turing-machine[/url] "
 script = ExtResource("27_kxkpc")
 
 [node name="tag" type="RichTextLabel" parent="VBoxContainer"]
