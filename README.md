@@ -4,6 +4,9 @@
 ## 在线使用地址
 [https://xingwangzhe.itch.io/turing-machine](https://xingwangzhe.itch.io/turing-machine)
 
+## 关于这个项目的文章
+[https://xingwangzhe.fun/posts/58216/](https://xingwangzhe.fun/posts/58216/)
+
 ## 设计思路
 
 使用godot来做ui界面，主体语言是gdscript(一个类似python的语言)
