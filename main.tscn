@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1tc4mr8rtbgo"]
+[gd_scene load_steps=30 format=3 uid="uid://d1tc4mr8rtbgo"]
 
 [ext_resource type="Script" path="res://gdscripts/log.gd" id="1_2yad5"]
 [ext_resource type="Texture2D" uid="uid://rx66gh77hvrf" path="res://images/formula/1.svg" id="1_n4kgr"]
+[ext_resource type="FontFile" uid="uid://bfdyv5wt54oft" path="res://font_about/SourceHanSansSC-Medium-2.otf" id="1_uw873"]
 [ext_resource type="Texture2D" uid="uid://cbh622gagulog" path="res://images/formula/2.svg" id="2_hjjs3"]
 [ext_resource type="Script" path="res://gdscripts/model_gds/model_1.gd" id="2_lr0mv"]
 [ext_resource type="Texture2D" uid="uid://cjdt45y27lcwg" path="res://images/formula/3.svg" id="3_158ks"]
@@ -15,17 +16,19 @@
 [ext_resource type="Script" path="res://gdscripts/label_buttons/label_1.gd" id="12_hhxsn"]
 [ext_resource type="Script" path="res://gdscripts/v_box_container.gd" id="12_jnkuv"]
 [ext_resource type="Script" path="res://gdscripts/window.gd" id="12_o82vi"]
+[ext_resource type="Script" path="res://help.gd" id="12_tutg8"]
 [ext_resource type="Script" path="res://gdscripts/rich_text_label_2.gd" id="13_0w5rx"]
 [ext_resource type="Script" path="res://gdscripts/label_buttons/label_2.gd" id="13_67nac"]
 [ext_resource type="Script" path="res://gdscripts/rich_text_label.gd" id="13_p2dws"]
 [ext_resource type="Script" path="res://gdscripts/label_buttons/label_3.gd" id="14_nqcv3"]
 [ext_resource type="Script" path="res://gdscripts/line_edit.gd" id="15_bk86s"]
-[ext_resource type="Script" path="res://gdscripts/button.gd" id="15_ge00m"]
 [ext_resource type="Script" path="res://gdscripts/label_buttons/label_4.gd" id="15_l2e8r"]
 [ext_resource type="Script" path="res://gdscripts/label_buttons/label_5.gd" id="16_ewdxr"]
 [ext_resource type="Script" path="res://gdscripts/once.gd" id="17_uqp46"]
 [ext_resource type="Script" path="res://gdscripts/full_action.gd" id="23_42q8j"]
-[ext_resource type="FontFile" uid="uid://cc2prmqrhwxbv" path="res://JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
+[ext_resource type="Script" path="res://gdscripts/window_2.gd" id="24_lu2k3"]
+[ext_resource type="FontFile" uid="uid://cc2prmqrhwxbv" path="res://font_about/JetBrainsMono-Bold-7.ttf" id="24_o1f5i"]
+[ext_resource type="Script" path="res://rich_text_label.gd" id="27_kxkpc"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -62,9 +65,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.25
+theme_override_fonts/mono_font = ExtResource("1_uw873")
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "日志
+text = "log
+
 "
 scroll_active = false
 scroll_following = true
@@ -90,6 +95,7 @@ size_flags_stretch_ratio = 0.39
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uw873")
 text = "模型选择："
 
 [node name="model_1" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
@@ -118,8 +124,15 @@ layout_mode = 2
 icon = ExtResource("5_u7im2")
 script = ExtResource("10_0kqoh")
 
+[node name="help" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uw873")
+text = "帮助"
+script = ExtResource("12_tutg8")
+
 [node name="about" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer_top"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uw873")
 text = "关于"
 script = ExtResource("11_wnoog")
 
@@ -133,12 +146,14 @@ script = ExtResource("12_jnkuv")
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uw873")
 text = "示例串"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uw873")
 text = "按下数字后快速输入"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -177,15 +192,9 @@ script = ExtResource("16_ewdxr")
 
 [node name="once" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uw873")
 text = "单次运行"
 script = ExtResource("17_uqp46")
-
-[node name="always" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 6.15
-text = "持续运行"
-script = ExtResource("15_ge00m")
 
 [node name="modelimg" type="Sprite2D" parent="VBoxContainer/PanelContainer"]
 position = Vector2(367.89, 340)
@@ -213,6 +222,7 @@ anchor_right = 1.0
 offset_right = 275.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("24_o1f5i")
 text = "计算机科学与技术 2302班 20235883 王兴家"
 horizontal_alignment = 1
 
@@ -222,6 +232,7 @@ offset_left = 238.405
 offset_top = 84.96
 offset_right = 438.405
 offset_bottom = 184.96
+theme_override_fonts/mono_font = ExtResource("1_uw873")
 bbcode_enabled = true
 text = "
 [img=32x32]res://images/icons/github.png[/img] [url=\"https://github.com/xingwangzhe/turing_machine\"]GitHub仓库[/url]
@@ -235,17 +246,40 @@ offset_left = 203.79
 offset_top = 180.0
 offset_right = 405.36
 offset_bottom = 221.805
+theme_override_fonts/normal_font = ExtResource("1_uw873")
 bbcode_enabled = true
 text = "[center]Powered by [img=32x32]res://images/icons/icon.svg[/img][url=\"http://godotengine.org\"]Godot[/url][/center]"
 scroll_active = false
 autowrap_mode = 2
 script = ExtResource("13_p2dws")
 
+[node name="Window2" type="Window" parent="VBoxContainer/PanelContainer"]
+initial_position = 2
+size = Vector2i(530, 155)
+script = ExtResource("24_lu2k3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/Window2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.27002
+offset_bottom = 0.884995
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/mono_font = ExtResource("1_uw873")
+bbcode_enabled = true
+text = "[center]帮助[/center][center]0.在底边输入自定义字符串||  1.直接输入数字可快速选中右边栏的示例串
+2.方向键快速选中按钮 ||  3.按n键单次运行
+4.此windows应用为离线版本，亦可以通过web来访问在线版本(毕竟浏览器才是多平台适配：)
+[url=\"https://turing-machine.xingwangzhe.fun\"]https://turing-machine.xingwangzhe.fun[/url] "
+script = ExtResource("27_kxkpc")
+
 [node name="tag" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 theme_override_fonts/normal_font = ExtResource("24_o1f5i")
+theme_override_fonts/mono_font = ExtResource("24_o1f5i")
 theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
 scroll_active = false
@@ -256,15 +290,17 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.51
 theme_override_fonts/normal_font = ExtResource("24_o1f5i")
+theme_override_fonts/mono_font = ExtResource("24_o1f5i")
 theme_override_font_sizes/normal_font_size = 91
-text = "等待下方输入"
+text = "STRING"
 scroll_active = false
 script = ExtResource("23_42q8j")
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-placeholder_text = "输入纸带串，默认两端加B,回车键确认输入"
+theme_override_fonts/font = ExtResource("1_uw873")
+placeholder_text = "enter"
 script = ExtResource("15_bk86s")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_1" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_1" method="_on_pressed"]
@@ -272,6 +308,7 @@ script = ExtResource("15_bk86s")
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_3" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_3" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_4" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_4" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/model_5" to="VBoxContainer/PanelContainer/HBoxContainer_top/model_5" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/help" to="VBoxContainer/PanelContainer/HBoxContainer_top/help" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer_top/about" to="VBoxContainer/PanelContainer/HBoxContainer_top/about" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label1" to="VBoxContainer/PanelContainer/VBoxContainer/Label1" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label2" to="VBoxContainer/PanelContainer/VBoxContainer/Label2" method="_on_pressed"]
@@ -279,8 +316,9 @@ script = ExtResource("15_bk86s")
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label4" to="VBoxContainer/PanelContainer/VBoxContainer/Label4" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Label5" to="VBoxContainer/PanelContainer/VBoxContainer/Label5" method="_on_label_5_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/once" to="VBoxContainer/PanelContainer/VBoxContainer/once" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/always" to="VBoxContainer/PanelContainer/VBoxContainer/always" method="_on_pressed"]
 [connection signal="close_requested" from="VBoxContainer/PanelContainer/Window" to="VBoxContainer/PanelContainer/Window" method="_on_close_requested"]
 [connection signal="meta_clicked" from="VBoxContainer/PanelContainer/Window/Control/RichTextLabel2" to="VBoxContainer/PanelContainer/Window/Control/RichTextLabel2" method="_on_meta_clicked"]
 [connection signal="meta_clicked" from="VBoxContainer/PanelContainer/Window/Control/RichTextLabel" to="VBoxContainer/PanelContainer/Window/Control/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="close_requested" from="VBoxContainer/PanelContainer/Window2" to="VBoxContainer/PanelContainer/Window2" method="_on_close_requested"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/Window2/RichTextLabel" to="VBoxContainer/PanelContainer/Window2/RichTextLabel" method="_on_meta_clicked"]
 [connection signal="text_submitted" from="VBoxContainer/LineEdit" to="VBoxContainer/LineEdit" method="_on_text_submitted"]

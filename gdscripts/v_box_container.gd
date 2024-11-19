@@ -28,5 +28,5 @@ func _process(delta: float) -> void:
 		$"../../full_action".text="B"+$Label5.text+"B"
 		$once.pos=1
 		$once.state=0	
-	
-		
+	elif Input.is_action_just_pressed("n"):
+		$once._on_pressed()

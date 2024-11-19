@@ -19,6 +19,6 @@ func _on_pressed() -> void:
 	$"../../VBoxContainer/Label3".text="00100000"
 	$"../../VBoxContainer/Label4".text="01000000"
 	$"../../VBoxContainer/Label5".text="00000010"
-	$"../../../full_action".text="等待下方输入"
+	$"../../../full_action".text="STRING"
 	$"../../VBoxContainer/once".id=4
 		
