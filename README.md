@@ -1,6 +1,9 @@
 # 图灵机模型
 ## 许可 : [MIT](LICENSE)
 
+##在线使用地址
+[https://xingwangzhe.itch.io/turing-machine](https://xingwangzhe.itch.io/turing-machine)
+
 ## 设计思路
 
 使用godot来做ui界面，主体语言是gdscript(一个类似python的语言)
